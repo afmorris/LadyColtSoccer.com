@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "LadyColtSoccer"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-LadyColtSoccer-d15f80e6-b6d8-42ee-9f83-4dcb601130ed;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
