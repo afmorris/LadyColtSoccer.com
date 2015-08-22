@@ -1518,6 +1518,14 @@
           "lib/dnx451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
+      "NewRelic.Azure.WebSites/5.3.90.0": {
+        "compile": {
+          "lib/NewRelic.Api.Agent.dll": {}
+        },
+        "runtime": {
+          "lib/NewRelic.Api.Agent.dll": {}
+        }
+      },
       "Newtonsoft.Json/6.0.6": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -2948,6 +2956,7 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "NewRelic.Azure.WebSites/5.3.90.0": {},
       "Newtonsoft.Json/6.0.6": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll": {}
@@ -5398,6 +5407,64 @@
         "ref/net46/Microsoft.Win32.Registry.dll"
       ]
     },
+    "NewRelic.Azure.WebSites/5.3.90.0": {
+      "sha512": "4eg1mVofyZTLr8bvWrONHdRdGvxlXkiVZp9fCn1r/tbhUkDPGoJi4PIYA4AJk7sWQQZSo7Q+oN/vAnENG9heZQ==",
+      "files": [
+        "NewRelic.Azure.WebSites.5.3.90.0.nupkg",
+        "NewRelic.Azure.WebSites.5.3.90.0.nupkg.sha512",
+        "NewRelic.Azure.WebSites.nuspec",
+        "content/newrelic/NewRelic.Agent.Core.dll",
+        "content/newrelic/NewRelic.Agent.Extensions.dll",
+        "content/newrelic/newrelic.config",
+        "content/newrelic/NewRelic.Profiler.dll",
+        "content/newrelic/newrelic.xsd",
+        "content/newrelic/Extensions/CoreInstrumentation.xml",
+        "content/newrelic/Extensions/extension.xsd",
+        "content/newrelic/Extensions/NewRelic.Agent.AttributeFilter.dll",
+        "content/newrelic/Extensions/NewRelic.Agent.Configuration.dll",
+        "content/newrelic/Extensions/NewRelic.Agent.Core.dll",
+        "content/newrelic/Extensions/NewRelic.Agent.LabelsService.dll",
+        "content/newrelic/Extensions/NewRelic.Agent.LazyMap.dll",
+        "content/newrelic/Extensions/NewRelic.Collections.dll",
+        "content/newrelic/Extensions/NewRelic.Core.dll",
+        "content/newrelic/Extensions/NewRelic.Dispatchers.dll",
+        "content/newrelic/Extensions/NewRelic.Memoization.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.CallStack.AsyncLocal.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.TransactionContext.Asp.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.TransactionContext.Default.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.TransactionContext.Wcf3.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.Asp35.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.Asp35.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.HttpClient.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.HttpClient.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.MongoDb.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.MongoDb.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.Mvc3.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.Mvc3.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.NServiceBus.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.NServiceBus.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.Wcf3.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.Wcf3.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebApi1.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebApi1.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebApi2.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebApi2.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebOptimization.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebOptimization.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebServices.dll",
+        "content/newrelic/Extensions/NewRelic.Providers.Wrapper.WebServices.Instrumentation.xml",
+        "content/newrelic/Extensions/NewRelic.Reflection.dll",
+        "content/newrelic/Extensions/NewRelic.SystemExtensions.dll",
+        "content/newrelic/Extensions/NewRelic.SystemInterfaces.dll",
+        "content/newrelic/Extensions/NewRelic.Testing.Assertions.dll",
+        "content/newrelic/Extensions/NewRelic.Trie.dll",
+        "content/newrelic/Extensions/NewRelic.TypeInstantiation.dll",
+        "content/newrelic/Extensions/NewRelic.WeakActions.dll",
+        "lib/NewRelic.Api.Agent.dll",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Newtonsoft.Json/6.0.6": {
       "sha512": "w26uZNyCG5VeoKiEOJ4+9/o8koSofLKwHl7WLreIcp0U6r57L7WiRXmjp8MTKFw6dYNZ9AE0lw69WYbIhUsU9Q==",
       "files": [
@@ -6492,7 +6559,8 @@
       "Microsoft.Framework.Configuration.UserSecrets >= 1.0.0-beta5",
       "Microsoft.Framework.Logging >= 1.0.0-beta5",
       "Microsoft.Framework.Logging.Console >= 1.0.0-beta5",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-beta5"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-beta5",
+      "NewRelic.Azure.WebSites >= 5.3.90"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
