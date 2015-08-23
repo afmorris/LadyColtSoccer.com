@@ -6,7 +6,7 @@
 //   Tony.Morris
 // </author>
 // <modified>
-//   2015-08-22 8:14 PM
+//   2015-08-22 8:53 PM
 // </modified>
 // <created>
 //   2015-08-20 10:00 PM
@@ -15,15 +15,9 @@
 
 namespace LadyColtSoccer
 {
-    using LadyColtSoccer.Services;
-    using Microsoft.AspNet.Authentication.Facebook;
-    using Microsoft.AspNet.Authentication.MicrosoftAccount;
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Diagnostics;
-    using Microsoft.AspNet.Diagnostics.Entity;
     using Microsoft.AspNet.Hosting;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.Data.Entity;
     using Microsoft.Framework.Configuration;
     using Microsoft.Framework.DependencyInjection;
     using Microsoft.Framework.Logging;
@@ -70,7 +64,6 @@ namespace LadyColtSoccer
             {
                 app.UseBrowserLink();
                 app.UseErrorPage(ErrorPageOptions.ShowAll);
-                app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
             else
             {
@@ -81,9 +74,6 @@ namespace LadyColtSoccer
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
-
-            // Add cookie-based authentication to the request pipeline.
-            app.UseIdentity();
 
             // Add authentication middleware to the request pipeline. You can configure options such as Id and Secret in the ConfigureServices method.
             // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
