@@ -1,15 +1,26 @@
 ﻿// Write your Javascript code.
 
 $(document).ready(function () {
-    $("div.emailAddress").hide();
+    var $emailAddress = $("div.emailAddress");
+    var $phoneNumber = $("div.phoneNumber");
+    var $emailAddressInput = $("input#email");
+    var $phoneNumberInput = $("input#phoneNumber");
+
+    $phoneNumberInput.prop("required", true);
+    $emailAddress.hide();
+    $emailAddressInput.prop("required", false);
 
     $("input:radio[name=\"contactChoice\"]").change(function() {
         if (this.checked && this.value === "phone") {
-            $("div.phoneNumber").show();
-            $("div.emailAddress").hide();
+            $phoneNumber.show();
+            $phoneNumberInput.prop("required", true);
+            $emailAddress.hide();
+            $emailAddressInput.prop("required", false);
         } else {
-            $("div.phoneNumber").hide();
-            $("div.emailAddress").show();
+            $phoneNumber.hide();
+            $phoneNumberInput.prop("required", false);
+            $emailAddress.show();
+            $emailAddressInput.prop("required", true);
         }
     });
 });

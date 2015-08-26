@@ -14,8 +14,8 @@
 input,
 select,
 textarea {
-    max-width: 450px;
 }
 
-div.emailAddress {
+div.jumbotron {
+    background: transparent;
 }
