@@ -1,4 +1,7 @@
-﻿@{
+﻿@using LadyColtSoccer.Models;
+@model LadyColtSoccer.Models.FormSubmission
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -14,53 +17,46 @@
     </p>
 </div>
 <div class="container col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-    <form class="form">
+    @using (Html.BeginForm("FormSubmit", "Home", new {@class = "form"}))
+    {
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name" required />
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new {@class = "form-control", id = "name", placeholder = "Name"})
         </div>
         <div class="form-group">
-            <label for="numberOfTickets">Number of Tickets</label>
-            <select class="form-control" id="numberOfTickets">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10+</option>
-            </select>
+            @Html.LabelFor(x => x.NumberOfTickets)
+            @Html.DropDownListFor(x => x.NumberOfTickets, Html.GetEnumSelectList(typeof (NumberOfTickets)), new {@class = "form-control", id = "numberOfTickets"})
         </div>
         <div class="form-group">
-            <label>Preferred Method of Contact</label>
+            @Html.LabelFor(x => x.ContactChoice)
             <div class="radio">
                 <label>
-                    <input type="radio" name="contactChoice" id="contactChoice1" value="phone" checked />
+                    @Html.RadioButtonFor(x => x.ContactChoice, "phone", new {id = "contactChoice1"})
                     Phone
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="contactChoice" id="contactChoice2" value="email" />
+                    @Html.RadioButtonFor(x => x.ContactChoice, "email", new {id = "contactChoice2"})
                     Email
                 </label>
             </div>
         </div>
         <div class="form-group phoneNumber">
-            <label for="phoneNumber">Phone Number</label>
-            <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" />
+            @Html.LabelFor(x => x.PhoneNumber)
+            @Html.TextBoxFor(x => x.PhoneNumber, new {@class = "form-control", @type = "tel", id = "phoneNumber", placeholder = "Phone Number"})
         </div>
         <div class="form-group emailAddress">
-            <label for="email">Email Address</label>
-            <input type="email" class="form-control" id="email" placeholder="Email Address"/>
+            @Html.LabelFor(x => x.EmailAddress)
+            @Html.TextBoxFor(x => x.EmailAddress, new {@class = "form-control", @type = "email", id = "email", placeholder = "Email Address"})
         </div>
         <div class="form-group">
-            <label for="additionalInformation">Additional Information</label>
-            <textarea class="form-control" id="additionalInformation" rows="6" placeholder="Input additional information here"></textarea>
+            @Html.LabelFor(x => x.AdditionalInformation)
+            @Html.TextAreaFor(x => x.AdditionalInformation, new {rows = 6, @class = "form-control", id = "additionalInformation", placeholder = "Input additional information here"})
+        </div>
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LcU0wsTAAAAAMunuvFVTGfL7Zm6RO_xfM4qCnLh"></div>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    }
 </div>

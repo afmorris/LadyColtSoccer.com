@@ -15,9 +15,11 @@
 
 namespace LadyColtSoccer
 {
+    using LadyColtSoccer.Models;
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Diagnostics;
     using Microsoft.AspNet.Hosting;
+    using Microsoft.Data.Entity;
     using Microsoft.Framework.Configuration;
     using Microsoft.Framework.DependencyInjection;
     using Microsoft.Framework.Logging;
@@ -48,6 +50,9 @@ namespace LadyColtSoccer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            const string connection = "Server=tcp:go0urr9x1i.database.windows.net,1433;Database=ladycoltsoccer;User ID=ladycoltsoccer@go0urr9x1i;Password=base1422!!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
+
+            services.AddEntityFramework().AddSqlServer().AddDbContext<FormContext>(options => options.UseSqlServer(connection));
             services.AddMvc();
         }
 
