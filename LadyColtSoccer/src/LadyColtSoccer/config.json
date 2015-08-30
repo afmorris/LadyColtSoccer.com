@@ -1,5 +1,5 @@
 {
   "AppSettings": {
-    "SiteTitle": "LadyColtSoccer"
+    "DataConnectionString": "Server=tcp:go0urr9x1i.database.windows.net,1433;Database=ladycoltsoccer;User ID=ladycoltsoccer@go0urr9x1i;Password=base1422!!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
   }
 }

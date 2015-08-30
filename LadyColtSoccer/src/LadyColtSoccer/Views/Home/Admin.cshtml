@@ -1,0 +1,42 @@
+﻿@using LadyColtSoccer.Models;
+@model IEnumerable<FormSubmission>
+
+@{
+    ViewData["Title"] = "Administration";
+}
+
+<div class="jumbotron">
+    <h1>
+        Admin Zone
+    </h1>
+    <p>
+        If you aren't an administrator, you shouldn't be here.
+    </p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number of Tickets</th>
+            <th>Contact Choice</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Additional Information</th>
+            <th>Date Entered</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.Name</td>
+                <td>@record.NumberOfTickets</td>
+                <td>@record.ContactChoice</td>
+                <td>@record.PhoneNumber</td>
+                <td>@record.EmailAddress</td>
+                <td>@record.AdditionalInformation</td>
+                <td>@record.DateEntered.ToLocalTime()</td>
+            </tr>
+        }
+    </tbody>
+</table>

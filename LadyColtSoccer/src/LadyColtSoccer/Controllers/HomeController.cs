@@ -1,32 +1,32 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Veritix" file="HomeController.cs">
-//   Copyright (c) Veritix. All rights reserved.
-// </copyright>
-// <author>
-//   Tony.Morris
+﻿// <author>
+//   Tony Morris
 // </author>
 // <modified>
-//   2015-08-22 8:12 PM
+//   2015-08-29 10:58 PM
 // </modified>
 // <created>
-//   2015-08-20 10:00 PM
+//   2015-08-23 11:58 AM
 // </created>
-// --------------------------------------------------------------------------------------------------------------------
 
 namespace LadyColtSoccer.Controllers
 {
     using System;
+    using System.Data.SqlClient;
+
+    using Dapper;
+
     using LadyColtSoccer.Models;
+
     using Microsoft.AspNet.Mvc;
-    using FormContext = LadyColtSoccer.Models.FormContext;
+    using Microsoft.Framework.OptionsModel;
 
     public class HomeController : Controller
     {
-        private readonly FormContext context;
+        private readonly IOptions<AppSettings> appSettings;
 
-        public HomeController(FormContext context)
+        public HomeController(IOptions<AppSettings> appSettings)
         {
-            this.context = context;
+            this.appSettings = appSettings;
         }
 
         public IActionResult Index()
@@ -40,8 +40,13 @@ namespace LadyColtSoccer.Controllers
             var recaptcha = this.Request.Form["g-recaptcha-response"];
             // TODO: Check if this is a valid anti-bot response
 
-            this.context.Submissions.Add(model);
-            this.context.SaveChanges();
+            model.DateEntered = DateTime.UtcNow;
+            using (var connection = new SqlConnection(this.appSettings.Options.DataConnectionString))
+            {
+                connection.Execute(
+                    "INSERT INTO [FormSubmission] ([Name], [NumberOfTickets], [ContactChoice], [PhoneNumber], [EmailAddress], [AdditionalInformation], [DateEntered]) VALUES (@Name, @NumberOfTickets, @ContactChoice, @PhoneNumber, @EmailAddress, @AdditionalInformation, @DateEntered)",
+                    model);
+            }
 
             return this.RedirectToAction("Confirmation");
         }
@@ -50,6 +55,15 @@ namespace LadyColtSoccer.Controllers
         public IActionResult Confirmation()
         {
             return this.View();
+        }
+
+        [Route("Admin")]
+        public IActionResult Admin()
+        {
+            using (var connection = new SqlConnection(this.appSettings.Options.DataConnectionString))
+            {
+                return this.View(connection.Query<FormSubmission>("SELECT * FROM [FormSubmission]"));
+            }
         }
     }
 }

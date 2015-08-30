@@ -12,7 +12,12 @@
     <h2>
         Boston Market Tickets
     </h2>
-    <p class="lead">
+    <p>
+        Come join us on <strong>Friday, October 9, 2015</strong> from <strong>5pm - 7pm</strong> at the <strong>Cloverleaf High School Cafeteria</strong>. For the low
+        price of <strong>$10</strong>, you get <strong>chicken, two sides, cornbread, dessert, and a drink</strong> from <strong>Boston Market</strong>. All proceeds directly
+        support the Cloverleaf High School Girls Soccer team.
+    </p>
+    <p>
         If you are interested in purchasing tickets for the Boston Market team dinner, please fill out the form below and we will contact you shortly!
     </p>
 </div>
@@ -20,15 +25,15 @@
     @using (Html.BeginForm("FormSubmit", "Home", new {@class = "form"}))
     {
         <div class="form-group">
-            @Html.LabelFor(x => x.Name)
+            @Html.LabelFor(x => x.Name, "Name")
             @Html.TextBoxFor(x => x.Name, new {@class = "form-control", id = "name", placeholder = "Name"})
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.NumberOfTickets)
+            @Html.LabelFor(x => x.NumberOfTickets, "Number of Tickets")
             @Html.DropDownListFor(x => x.NumberOfTickets, Html.GetEnumSelectList(typeof (NumberOfTickets)), new {@class = "form-control", id = "numberOfTickets"})
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.ContactChoice)
+            @Html.LabelFor(x => x.ContactChoice, "Best Way to Contact")
             <div class="radio">
                 <label>
                     @Html.RadioButtonFor(x => x.ContactChoice, "phone", new {id = "contactChoice1"})
@@ -43,15 +48,15 @@
             </div>
         </div>
         <div class="form-group phoneNumber">
-            @Html.LabelFor(x => x.PhoneNumber)
+            @Html.LabelFor(x => x.PhoneNumber, "Phone Number")
             @Html.TextBoxFor(x => x.PhoneNumber, new {@class = "form-control", @type = "tel", id = "phoneNumber", placeholder = "Phone Number"})
         </div>
         <div class="form-group emailAddress">
-            @Html.LabelFor(x => x.EmailAddress)
+            @Html.LabelFor(x => x.EmailAddress, "Email Address")
             @Html.TextBoxFor(x => x.EmailAddress, new {@class = "form-control", @type = "email", id = "email", placeholder = "Email Address"})
         </div>
         <div class="form-group">
-            @Html.LabelFor(x => x.AdditionalInformation)
+            @Html.LabelFor(x => x.AdditionalInformation, "Additional Information")
             @Html.TextAreaFor(x => x.AdditionalInformation, new {rows = 6, @class = "form-control", id = "additionalInformation", placeholder = "Input additional information here"})
         </div>
         <div class="form-group">
@@ -59,4 +64,5 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     }
+    <br /><br />
 </div>

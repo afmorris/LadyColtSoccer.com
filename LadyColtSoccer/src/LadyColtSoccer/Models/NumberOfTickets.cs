@@ -1,7 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <author>
+//   Tony Morris
+// </author>
+// <modified>
+//   2015-08-29 10:57 PM
+// </modified>
+// <created>
+//   2015-08-29 9:24 PM
+// </created>
 
 namespace LadyColtSoccer.Models
 {

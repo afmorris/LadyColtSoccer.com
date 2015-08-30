@@ -1,25 +1,18 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Veritix" file="Startup.cs">
-//   Copyright (c) Veritix. All rights reserved.
-// </copyright>
-// <author>
-//   Tony.Morris
+﻿// <author>
+//   Tony Morris
 // </author>
 // <modified>
-//   2015-08-22 8:53 PM
+//   2015-08-29 10:56 PM
 // </modified>
 // <created>
-//   2015-08-20 10:00 PM
+//   2015-08-23 11:58 AM
 // </created>
-// --------------------------------------------------------------------------------------------------------------------
 
 namespace LadyColtSoccer
 {
-    using LadyColtSoccer.Models;
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Diagnostics;
     using Microsoft.AspNet.Hosting;
-    using Microsoft.Data.Entity;
     using Microsoft.Framework.Configuration;
     using Microsoft.Framework.DependencyInjection;
     using Microsoft.Framework.Logging;
@@ -31,9 +24,7 @@ namespace LadyColtSoccer
         {
             // Setup configuration sources.
 
-            var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
-                .AddJsonFile("config.json")
-                .AddJsonFile($"config.{env.EnvironmentName}.json", true);
+            var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath).AddJsonFile("config.json").AddJsonFile($"config.{env.EnvironmentName}.json", true);
 
             if (env.IsDevelopment())
             {
@@ -50,9 +41,7 @@ namespace LadyColtSoccer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            const string connection = "Server=tcp:go0urr9x1i.database.windows.net,1433;Database=ladycoltsoccer;User ID=ladycoltsoccer@go0urr9x1i;Password=base1422!!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
-
-            services.AddEntityFramework().AddSqlServer().AddDbContext<FormContext>(options => options.UseSqlServer(connection));
+            services.Configure<AppSettings>(this.Configuration.GetConfigurationSection("AppSettings"));
             services.AddMvc();
         }
 
@@ -88,13 +77,14 @@ namespace LadyColtSoccer
             // app.UseTwitterAuthentication();
 
             // Add MVC to the request pipeline.
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            app.UseMvc(
+                routes =>
+                    {
+                        routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
-                // Uncomment the following line to add a route for porting Web API 2 controllers.
-                // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
-            });
+                        // Uncomment the following line to add a route for porting Web API 2 controllers.
+                        // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
+                    });
         }
     }
 }

@@ -4,17 +4,9 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "EntityFramework.SqlServer": "7.0.0-beta5",
-    "EntityFramework.Commands": "7.0.0-beta5",
     "Microsoft.AspNet.Mvc": "6.0.0-beta5",
     "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta5",
-    "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta5",
-    "Microsoft.AspNet.Authentication.Facebook": "1.0.0-beta5",
-    "Microsoft.AspNet.Authentication.Google": "1.0.0-beta5",
-    "Microsoft.AspNet.Authentication.MicrosoftAccount": "1.0.0-beta5",
-    "Microsoft.AspNet.Authentication.Twitter": "1.0.0-beta5",
     "Microsoft.AspNet.Diagnostics": "1.0.0-beta5",
-    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta5",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-beta5",
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta5",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5",
@@ -26,17 +18,16 @@
     "Microsoft.Framework.Logging": "1.0.0-beta5",
     "Microsoft.Framework.Logging.Console": "1.0.0-beta5",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta5",
-    "NewRelic.Azure.WebSites": "5.3.90"
+    "NewRelic.Azure.WebSites": "5.3.90",
+    "Dapper": "1.42.0"
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Hosting --config hosting.ini",
-    "ef": "EntityFramework.Commands"
+    "web": "Microsoft.AspNet.Hosting --config hosting.ini"
   },
 
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": { }
   },
 
   "exclude": [
