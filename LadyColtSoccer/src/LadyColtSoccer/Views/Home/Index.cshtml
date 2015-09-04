@@ -2,80 +2,75 @@
 @model LadyColtSoccer.Models.FormSubmission
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Boston Market Dinner";
 }
 
-<div class="lcs-card-wide mdl-card mdl-shadow--16dp mdl-grid mdl-grid--no-spacing">
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Boston Market Dinner</h2>
+<div class="lcs-container mdl-grid">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="lcs-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Boston Market Dinner</h2>
+        </div>
+        <div class="lcs-card-content">
+            <p>
+                Come join us on <strong>Friday, October 9, 2015</strong> from <strong>5pm - 7pm</strong> at the <strong>Cloverleaf High School Cafeteria</strong>. For the low
+                price of <strong>$10</strong>, you get <strong>chicken, two sides, cornbread, dessert, and a drink</strong> from <strong>Boston Market</strong>. All proceeds directly
+                support the Cloverleaf High School Girls Soccer team.
+            </p>
+            <p>
+                If you are interested in purchasing tickets for the Boston Market team dinner, please fill out the form below and we will contact you shortly!
+            </p>
+            @using (Html.BeginForm("FormSubmit", "Home"))
+            {
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.TextBoxFor(x => x.Name, new {@class = "mdl-textfield__input", id = "name"})
+                    @Html.LabelFor(x => x.Name, new {@class = "mdl-textfield__label"})
+                </div>
+                <button class="mdl-button mdl-js-button" id="numberOfTickets">
+                    Number of Tickets
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="numberOfTickets">
+                    <li class="mdl-menu__item">One</li>
+                    <li class="mdl-menu__item">Two</li>
+                    <li class="mdl-menu__item">Three</li>
+                    <li class="mdl-menu__item">Four</li>
+                </ul>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.NumberOfTickets, "Number of Tickets")
+                    @Html.DropDownListFor(x => x.NumberOfTickets, Html.GetEnumSelectList(typeof(NumberOfTickets)), new { @class = "form-control", id = "numberOfTickets" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ContactChoice, "Best Way to Contact")
+                    <div class="radio">
+                        <label>
+                            @Html.RadioButtonFor(x => x.ContactChoice, "phone", new { id = "contactChoice1" })
+                            Phone
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            @Html.RadioButtonFor(x => x.ContactChoice, "email", new { id = "contactChoice2" })
+                            Email
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group phoneNumber">
+                    @Html.LabelFor(x => x.PhoneNumber, "Phone Number")
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @type = "tel", id = "phoneNumber", placeholder = "Phone Number" })
+                </div>
+                <div class="form-group emailAddress">
+                    @Html.LabelFor(x => x.EmailAddress, "Email Address")
+                    @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control", @type = "email", id = "email", placeholder = "Email Address" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.AdditionalInformation, "Additional Information")
+                    @Html.TextAreaFor(x => x.AdditionalInformation, new { rows = 6, @class = "form-control", id = "additionalInformation", placeholder = "Input additional information here" })
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LcU0wsTAAAAAMunuvFVTGfL7Zm6RO_xfM4qCnLh"></div>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            }
+        </div>
     </div>
-    <div class="mdl-card__supporting-text">
-        <p>
-            Come join us on <strong>Friday, October 9, 2015</strong> from <strong>5pm - 7pm</strong> at the <strong>Cloverleaf High School Cafeteria</strong>. For the low
-            price of <strong>$10</strong>, you get <strong>chicken, two sides, cornbread, dessert, and a drink</strong> from <strong>Boston Market</strong>. All proceeds directly
-            support the Cloverleaf High School Girls Soccer team.
-        </p>
-        <p>
-            If you are interested in purchasing tickets for the Boston Market team dinner, please fill out the form below and we will contact you shortly!
-        </p>
-    </div>
-</div>
-
-<div class="jumbotron">
-    <h2>
-        Boston Market Dinner
-    </h2>
-    <p>
-        Come join us on <strong>Friday, October 9, 2015</strong> from <strong>5pm - 7pm</strong> at the <strong>Cloverleaf High School Cafeteria</strong>. For the low
-        price of <strong>$10</strong>, you get <strong>chicken, two sides, cornbread, dessert, and a drink</strong> from <strong>Boston Market</strong>. All proceeds directly
-        support the Cloverleaf High School Girls Soccer team.
-    </p>
-    <p>
-        If you are interested in purchasing tickets for the Boston Market team dinner, please fill out the form below and we will contact you shortly!
-    </p>
-</div>
-<div class="container col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-    @using (Html.BeginForm("FormSubmit", "Home", new {@class = "form"}))
-    {
-        <div class="form-group">
-            @Html.LabelFor(x => x.Name, "Name")
-            @Html.TextBoxFor(x => x.Name, new {@class = "form-control", id = "name", placeholder = "Name"})
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.NumberOfTickets, "Number of Tickets")
-            @Html.DropDownListFor(x => x.NumberOfTickets, Html.GetEnumSelectList(typeof (NumberOfTickets)), new {@class = "form-control", id = "numberOfTickets"})
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.ContactChoice, "Best Way to Contact")
-            <div class="radio">
-                <label>
-                    @Html.RadioButtonFor(x => x.ContactChoice, "phone", new {id = "contactChoice1"})
-                    Phone
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    @Html.RadioButtonFor(x => x.ContactChoice, "email", new {id = "contactChoice2"})
-                    Email
-                </label>
-            </div>
-        </div>
-        <div class="form-group phoneNumber">
-            @Html.LabelFor(x => x.PhoneNumber, "Phone Number")
-            @Html.TextBoxFor(x => x.PhoneNumber, new {@class = "form-control", @type = "tel", id = "phoneNumber", placeholder = "Phone Number"})
-        </div>
-        <div class="form-group emailAddress">
-            @Html.LabelFor(x => x.EmailAddress, "Email Address")
-            @Html.TextBoxFor(x => x.EmailAddress, new {@class = "form-control", @type = "email", id = "email", placeholder = "Email Address"})
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.AdditionalInformation, "Additional Information")
-            @Html.TextAreaFor(x => x.AdditionalInformation, new {rows = 6, @class = "form-control", id = "additionalInformation", placeholder = "Input additional information here"})
-        </div>
-        <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="6LcU0wsTAAAAAMunuvFVTGfL7Zm6RO_xfM4qCnLh"></div>
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-    }
-    <br /><br />
 </div>

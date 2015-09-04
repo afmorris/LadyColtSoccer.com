@@ -3,59 +3,75 @@
     color: #FFF;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 25px;
+.lcs-main {
+    flex-shrink: 0;
+    background: #073818;
+    margin-top: 20px;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-}
-
-div.jumbotron {
-    background: transparent;
-}
-
-.lcs-base main {
-    padding-top: 48px;
-}
-
-.mdl-layout__header {
+.lcs-header .mdl-layout__header-row {
+    padding-left: 65px;
     background: url(../images/background.jpg);
     color: #FFF;
 }
 
-.mdl-layout__header-row .mdl-navigation__link {
-    color: #FFF;
-}
-
-.mdl-layout__header .mdl-layout__drawer-button {
-    color: #FFF;
-}
+    .lcs-header .mdl-layout__header-row a {
+        color: #FFF;
+    }
 
 .mdl-layout__drawer {
     background: url(../images/background.jpg);
     color: #FFF;
 }
 
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+        color: #FFF;
+    }
+
+        .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+            background: #073818;
+        }
+
+.mdl-layout__header .mdl-layout__drawer-button {
     color: #FFF;
-}
-
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
     background: #073818;
+    border: 1px solid #083b19;
 }
 
-.lcs-card-wide.mdl-card {
-    width: 512px;
+.lcs-container {
+    max-width: 1600px;
+    width: calc(100% - 16px);
+    margin: 0 auto;
 }
 
-.lcs-card-wide > .mdl-card__title {
+.lcs-content {
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    margin-bottom: 80px;
+}
+
+.lcs-card-content {
+    padding: 80px 56px;
+}
+
+.lcs-layout.is-small-screen .lcs-card-content {
+    padding: 40px 28px;
+}
+
+.lcs-content h3 {
+    margin-top: 48px;
+}
+
+.lcs-footer {
+    padding-left: 40px;
+    background-color: #083b19;
+}
+
+    .lcs-footer .mdl-mini-footer--link-list a {
+        font-size: 13px;
+    }
+
+.mdl-card__title {
     color: #FFF;
     height: 120px;
     background: url(../images/background.jpg);
