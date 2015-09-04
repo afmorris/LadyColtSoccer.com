@@ -1,5 +1,5 @@
 ﻿body {
-    background: url(../images/background.jpg);
+    background: #073818;
     color: #FFF;
 }
 
@@ -8,6 +8,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 25px;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -18,4 +19,45 @@ textarea {
 
 div.jumbotron {
     background: transparent;
+}
+
+.lcs-base main {
+    padding-top: 48px;
+}
+
+.mdl-layout__header {
+    background: url(../images/background.jpg);
+    color: #FFF;
+}
+
+.mdl-layout__header-row .mdl-navigation__link {
+    color: #FFF;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button {
+    color: #FFF;
+}
+
+.mdl-layout__drawer {
+    background: url(../images/background.jpg);
+    color: #FFF;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    color: #FFF;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+    background: #073818;
+}
+
+.lcs-card-wide.mdl-card {
+    width: 512px;
+}
+
+.lcs-card-wide > .mdl-card__title {
+    color: #FFF;
+    height: 120px;
+    background: url(../images/background.jpg);
+    width: 100%;
 }
